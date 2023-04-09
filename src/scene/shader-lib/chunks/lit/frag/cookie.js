@@ -18,7 +18,7 @@ vec4 getCookie2DXform(sampler2D tex, mat4 transform, float intensity, vec4 cooki
     projPos.xy /= projPos.w;
     projPos.xy += cookieOffset;
     vec2 uv = mat2(cookieMatrix) * (projPos.xy-vec2(0.5)) + vec2(0.5);
-    return mix(vec4(1.0), texture2D(tex, uv), intensity);
+    return mix(vec4(1.0), texture(tex, uv, 5.0), intensity);
 }
 
 vec4 getCookie2DClipXform(sampler2D tex, mat4 transform, float intensity, vec4 cookieMatrix, vec2 cookieOffset) {
